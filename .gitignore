@@ -9,9 +9,19 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
 # Mono auto generated files
 mono_crash.*
@@ -23,6 +33,14 @@ mono_crash.*
 [Rr]eleases/
 x64/
 x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
@@ -238,6 +256,17 @@ ClientBin/
 *.pfx
 *.publishsettings
 orleans.codegen.cs
+
+#Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
