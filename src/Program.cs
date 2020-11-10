@@ -12,11 +12,7 @@ namespace Batcaverna
 
             while (opcaoSelecionada != "x") 
             {
-                Console.WriteLine("O que deseja fazer?");
-                Console.WriteLine("1. Verificar quantidade de BatTrajes");
-                Console.WriteLine("X. Sair");
-
-                opcaoSelecionada = Console.ReadLine();
+                opcaoSelecionada = ObterOpçãoDoMenuComUsuário();
 
                 if(opcaoSelecionada == "1") 
                 {
@@ -25,6 +21,15 @@ namespace Batcaverna
                     Console.WriteLine($"Quantidade de trajes: {quantidadeDeTrajes}\n");
                 }
             }
+        }
+
+        static string ObterOpçãoDoMenuComUsuário() 
+        {
+            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine("1. Verificar quantidade de BatTrajes");
+            Console.WriteLine("X. Sair");
+
+            return Console.ReadLine();
         }
     }
 }
