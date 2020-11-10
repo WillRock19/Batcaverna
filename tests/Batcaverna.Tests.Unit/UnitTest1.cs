@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Batcaverna.Unit.Tests
+namespace Batcaverna.Tests.Unit
 {
     public class Tests
     {
