@@ -4,7 +4,7 @@ using System;
 
 namespace Batcaverna
 {
-    class Program
+    class Batcave
     {
         static void Main(string[] args)
         {
