@@ -1,7 +1,5 @@
 ﻿using Batcaverna.Modelos;
 using Batcaverna.Repositorios;
-using src.MenuBatCarro;
-using src.MenuBatTraje;
 using System;
 
 namespace Batcaverna
@@ -11,8 +9,7 @@ namespace Batcaverna
         static void Main(string[] args)
         {
             var opcaoSelecionada = "";
-            var menuBatTraje = new MenuBatTraje();
-            var menuBatCarro = new MenuBatCarro();
+            var repositorio = new BatTrajeRepositorio();
 
             Console.WriteLine("Bem-vindo à Batcaverna!");
 
@@ -20,88 +17,43 @@ namespace Batcaverna
             {
                 opcaoSelecionada = ObterOpçãoDoMenuComUsuário();
 
-                var opcaoSelecionadaBatTraje = "";
-                var opcaoSelecionadaBatCarro = "";
-
-                if (opcaoSelecionada == "1")
+                if (opcaoSelecionada == "1") 
                 {
-                    while (opcaoSelecionadaBatTraje != "x")
-                    {
-                        opcaoSelecionadaBatTraje = ObterOpçãoDoMenuBatTrajeComUsuário();
-
-                        if (opcaoSelecionadaBatTraje == "1") 
-                            menuBatTraje.Cadastrar();
-                        
-
-                        if(opcaoSelecionadaBatTraje == "2") 
-                            menuBatTraje.Quantidade();
-                        
-
-                        if(opcaoSelecionadaBatTraje == "3")
-                            menuBatTraje.Verificar();
-
-
-                        if(opcaoSelecionadaBatTraje == "4") 
-                            menuBatTraje.Excluir();
-                        
-                    }
+                    repositorio.AdicionarTraje(new BatTraje());
+                    Console.WriteLine($"Traje adicionado com sucesso :) \n");
                 }
 
-                if ( opcaoSelecionada == "2")
+                if(opcaoSelecionada == "2") 
                 {
-                    while(opcaoSelecionadaBatCarro != "x")
-                    {
-                        opcaoSelecionadaBatCarro = ObterOpçãoDoMenuBatCarroComUsuário();
+                    var quantidadeDeTrajes = repositorio.ListarTrajes().Count;
+                    Console.WriteLine($"Quantidade de trajes: {quantidadeDeTrajes}\n");
+                }
 
-                        if (opcaoSelecionadaBatCarro == "1") 
-                            menuBatCarro.Cadastrar();
 
-                        if(opcaoSelecionadaBatCarro == "2") 
-                            menuBatCarro.Quantidade();
+                if (opcaoSelecionada == "3")
+                {
+                    Console.WriteLine("Favor, informar o Id: ");
+                    var idInformado = Console.ReadLine();
 
-                        if (opcaoSelecionadaBatCarro == "3")
-                            menuBatCarro.Verificar();
+                    var traje = repositorio.ObterPorId(Int64.Parse(idInformado));
 
-                        if (opcaoSelecionadaBatCarro == "4") 
-                            menuBatCarro.Excluir();
-                    }
+                    if (traje != null)
+                        Console.WriteLine($"O traje existe! \n");
+                    else
+                        Console.WriteLine("Traje não encontrado :/ \n");
                 }
             }
         }
 
         static string ObterOpçãoDoMenuComUsuário() 
         {
-            Console.WriteLine("O que deseja acessar?");
-            Console.WriteLine("1. BatTraje");
-            Console.WriteLine("2. BatCarro");
-            Console.WriteLine("X. Sair");
-
-            return Console.ReadLine();
-        }
-
-        static string ObterOpçãoDoMenuBatTrajeComUsuário()
-        {
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine("1. Cadastrar BatTraje");
             Console.WriteLine("2. Quantidade de BatTrajes");
-            Console.WriteLine("3. Verificar se BatTraje existe");
-            Console.WriteLine("4. Excluir BatTraje");
+            Console.WriteLine("3. Verificar se traje existe");
             Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
-        }
-
-        static string ObterOpçãoDoMenuBatCarroComUsuário()
-        {
-            Console.WriteLine("O que deseja fazer?");
-            Console.WriteLine("1. Cadastrar BatCarro");
-            Console.WriteLine("2. Quantidade de BatCarros");
-            Console.WriteLine("3. Verificar se BatCarro existe");
-            Console.WriteLine("4. Excluir Batcarro");
-            Console.WriteLine("X. Sair");
-            
-            return Console.ReadLine();
-
         }
     }
 }
