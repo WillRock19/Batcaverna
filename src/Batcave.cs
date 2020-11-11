@@ -9,8 +9,8 @@ namespace Batcaverna
         static void Main(string[] args)
         {
             var opcaoSelecionada = "";
-            var repositorioT = new BatTrajeRepositorio();
-            var repositorioC = new BatCarroRepositorio();
+            var batTrajes = new BatTrajeRepositorio();
+            var batCarros = new BatCarroRepositorio();
 
             Console.WriteLine("Bem-vindo à Batcaverna!");
 
@@ -20,13 +20,13 @@ namespace Batcaverna
 
                 if (opcaoSelecionada == "1") 
                 {
-                    repositorioT.AdicionarTraje(new BatTraje());
+                    batTrajes.AdicionarTraje(new BatTraje());
                     Console.WriteLine($"Traje adicionado com sucesso :) \n");
                 }
 
                 if(opcaoSelecionada == "2") 
                 {
-                    var quantidadeDeTrajes = repositorioT.ListarTrajes().Count;
+                    var quantidadeDeTrajes = batTrajes.ListarTrajes().Count;
                     Console.WriteLine($"Quantidade de trajes: {quantidadeDeTrajes}\n");
                 }
 
@@ -36,7 +36,7 @@ namespace Batcaverna
                     Console.WriteLine("Favor, informar o Id: ");
                     var idInformado = Console.ReadLine();
 
-                    var traje = repositorioT.ObterPorId(Int64.Parse(idInformado));
+                    var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
 
                     if (traje != null)
                         Console.WriteLine($"O traje existe! \n");
@@ -46,13 +46,13 @@ namespace Batcaverna
 
                 if (opcaoSelecionada == "4") 
                 {
-                    repositorioC.AdicionarCarro(new BatCarro());
+                    batCarros.AdicionarCarro(new BatCarro());
                     Console.WriteLine($"Carro adicionado com sucesso :) \n");
                 }
 
                 if(opcaoSelecionada == "5") 
                 {
-                    var quantidadeDeCarros = repositorioC.ListarCarros().Count;
+                    var quantidadeDeCarros = batCarros.ListarCarros().Count;
                     Console.WriteLine($"Quantidade de carros: {quantidadeDeCarros}\n");
                 }
 
@@ -62,7 +62,7 @@ namespace Batcaverna
                     Console.WriteLine("Favor, informar o Id: ");
                     var idInformado = Console.ReadLine();
 
-                    var carro = repositorioC.ObterPorId(Int64.Parse(idInformado));
+                    var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
 
                     if (carro != null)
                         Console.WriteLine($"O carro existe! \n");
