@@ -48,5 +48,9 @@ namespace Batcaverna.Repositorios
             return null;
 >>>>>>> Criado o modelo BatCarro e repositorio BatCarroRepositorio
         }
+        public void ExcluirCarro(BatCarro carro) 
+        {
+            _listaDeCarros.Remove(carro);
+        }
     }
 }
