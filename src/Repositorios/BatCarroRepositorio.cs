@@ -23,7 +23,6 @@ namespace Batcaverna.Repositorios
             _contadorRegistros++;
         }
 
-
         public List<BatCarro> ListarCarros() 
         {
             return _listaDeCarros;
@@ -31,22 +30,9 @@ namespace Batcaverna.Repositorios
 
         public BatCarro ObterPorId(long id) 
         {
-<<<<<<< HEAD
+
           var carro = _listaDeCarros.FirstOrDefault(batCarro => batCarro.Id == id);
             return carro;
-        }
-        public void ExcluirCarro(BatCarro carro) 
-        {
-            _listaDeCarros.Remove(carro);
-=======
-            foreach(var carro in _listaDeCarros) 
-            {
-                if (carro.Id == id)
-                    return carro;
-            }
-
-            return null;
->>>>>>> Criado o modelo BatCarro e repositorio BatCarroRepositorio
         }
         public void ExcluirCarro(BatCarro carro) 
         {
