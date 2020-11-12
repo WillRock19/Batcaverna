@@ -50,8 +50,17 @@ namespace Batcaverna
                     Console.WriteLine("Favor, informar o Id: ");
                     idInformado = Console.ReadLine();
 
-                    batTrajes.ExcluirTraje(batTrajes.ObterPorId(Int64.Parse(idInformado)));
-                    Console.WriteLine($"BatTraje excluido com sucesso :) \n");
+                    var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
+
+                    if (traje != null)
+                    {
+                        batTrajes.ExcluirTraje(batTrajes.ObterPorId(Int64.Parse(idInformado)));
+                        Console.WriteLine($"BatTraje excluido com sucesso :) \n");
+                    }
+                       
+                    else
+                        Console.WriteLine("BatTraje não encontrado :/ \n");
+
                 }
 
                 if (opcaoSelecionada == "5") 
@@ -84,8 +93,16 @@ namespace Batcaverna
                     Console.WriteLine("Favor, informar o Id: ");
                     idInformado = Console.ReadLine();
 
-                    batCarros.ExcluirCarro(batCarros.ObterPorId(Int64.Parse(idInformado)));
-                    Console.WriteLine($"BatCarro excluido com sucesso :) \n");
+                    var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
+
+                    if (carro != null)
+                    {
+                        batCarros.ExcluirCarro(batCarros.ObterPorId(Int64.Parse(idInformado)));
+                        Console.WriteLine($"BatCarro excluido com sucesso :) \n");
+                    }
+                    else
+                        Console.WriteLine("BatCarro não encontrado :/ \n");
+                    
                 }
             }
         }
