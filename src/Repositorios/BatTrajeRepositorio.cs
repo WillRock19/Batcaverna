@@ -38,5 +38,9 @@ namespace Batcaverna.Repositorios
 
             return null;
         }
+        public void ExcluirTraje(BatTraje traje) 
+        {
+            _listaDeTrajes.Remove(traje);
+        }
     }
 }
