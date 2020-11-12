@@ -38,5 +38,9 @@ namespace Batcaverna.Repositorios
 
             return null;
         }
+        public void ExcluirCarro(BatCarro carro) 
+        {
+            _listaDeCarros.Remove(carro);
+        }
     }
 }

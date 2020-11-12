@@ -11,6 +11,7 @@ namespace Batcaverna
             var opcaoSelecionada = "";
             var batTrajes = new BatTrajeRepositorio();
             var batCarros = new BatCarroRepositorio();
+            var idInformado = "";
 
             Console.WriteLine("Bem-vindo à Batcaverna!");
 
@@ -34,7 +35,7 @@ namespace Batcaverna
                 if (opcaoSelecionada == "3")
                 {
                     Console.WriteLine("Favor, informar o Id: ");
-                    var idInformado = Console.ReadLine();
+                    idInformado = Console.ReadLine();
 
                     var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
 
@@ -60,7 +61,7 @@ namespace Batcaverna
                 if (opcaoSelecionada == "6")
                 {
                     Console.WriteLine("Favor, informar o Id: ");
-                    var idInformado = Console.ReadLine();
+                    idInformado = Console.ReadLine();
 
                     var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
 
@@ -68,6 +69,14 @@ namespace Batcaverna
                         Console.WriteLine($"O carro existe! \n");
                     else
                         Console.WriteLine("Carro não encontrado :/ \n");
+                }
+                if (opcaoSelecionada == "7") 
+                {
+                    Console.WriteLine("Favor, informar o Id: ");
+                    idInformado = Console.ReadLine();
+
+                    batCarros.ExcluirCarro(batCarros.ObterPorId(Int64.Parse(idInformado)));
+                    Console.WriteLine($"Carro excluido com sucesso :) \n");
                 }
             }
         }
@@ -81,6 +90,7 @@ namespace Batcaverna
             Console.WriteLine("4. Cadastrar BatCarro");
             Console.WriteLine("5. Quantidade de BatCarros");
             Console.WriteLine("6. Verificar se carro existe");
+            Console.WriteLine("7. Excluir Batcarro");
             Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
