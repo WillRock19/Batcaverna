@@ -1,5 +1,6 @@
 ﻿using Batcaverna.Modelos;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Batcaverna.Repositorios
 {
@@ -30,13 +31,8 @@ namespace Batcaverna.Repositorios
 
         public BatTraje ObterPorId(long id) 
         {
-            foreach(var traje in _listaDeTrajes) 
-            {
-                if (traje.Id == id)
-                    return traje;
-            }
-
-            return null;
+            var traje = _listaDeTrajes.FirstOrDefault(batTraje => batTraje.Id == id);
+            return traje;
         }
         public void ExcluirTraje(BatTraje traje) 
         {
