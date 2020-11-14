@@ -145,6 +145,7 @@ namespace Batcaverna
 
             return Console.ReadLine();
         }
+
         static string ObterOpçãoDoMenuBatCarroComUsuário()
         {
             Console.WriteLine("O que deseja fazer?");
