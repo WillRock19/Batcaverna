@@ -9,8 +9,8 @@ namespace Batcaverna
         static void Main(string[] args)
         {
             var opcaoSelecionada = "";
-            var opcaoSelecionadaBatTraje = "x";
-            var opcaoSelecionadaBatCarro = "x";
+            var opcaoSelecionadaBatTraje = "";
+            var opcaoSelecionadaBatCarro = "";
             var batTrajes = new BatTrajeRepositorio();
             var batCarros = new BatCarroRepositorio();
             var idInformado = "";
@@ -74,7 +74,7 @@ namespace Batcaverna
 
                 if ( opcaoSelecionada == "2")
                 {
-                    while(opcaoSelecionadaBatCarro != "")
+                    while(opcaoSelecionadaBatCarro != "x")
                     {
                         opcaoSelecionadaBatCarro = ObterOpçãoDoMenuBatCarroComUsuário();
 
@@ -154,7 +154,7 @@ namespace Batcaverna
             Console.WriteLine("3. Verificar se BatCarro existe");
             Console.WriteLine("4. Excluir Batcarro");
             Console.WriteLine("X. Sair");
-
+            
             return Console.ReadLine();
 
         }
