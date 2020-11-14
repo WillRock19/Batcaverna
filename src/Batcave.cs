@@ -9,8 +9,8 @@ namespace Batcaverna
         static void Main(string[] args)
         {
             var opcaoSelecionada = "";
-            var opcaoSelecionadaBatTraje = "";
-            var opcaoSelecionadaBatCarro = "";
+            var opcaoSelecionadaBatTraje = "x";
+            var opcaoSelecionadaBatCarro = "x";
             var batTrajes = new BatTrajeRepositorio();
             var batCarros = new BatCarroRepositorio();
             var idInformado = "";
@@ -23,10 +23,9 @@ namespace Batcaverna
 
                 if (opcaoSelecionada == "1")
                 {
-                    opcaoSelecionadaBatTraje = ObterOpçãoDoMenuBatTrajeComUsuário();
-
                     while (opcaoSelecionadaBatTraje != "x")
                     {
+                        opcaoSelecionadaBatTraje = ObterOpçãoDoMenuBatTrajeComUsuário();
 
                         if (opcaoSelecionadaBatTraje == "1") 
                         {
@@ -40,7 +39,7 @@ namespace Batcaverna
                             Console.WriteLine($"Quantidade de BatTrajes: {quantidadeDeTrajes}\n");
                         }
 
-                        if (opcaoSelecionadaBatTraje == "3")
+                        if(opcaoSelecionadaBatTraje == "3")
                         {
                             Console.WriteLine("Favor, informar o Id: ");
                             idInformado = Console.ReadLine();
@@ -53,7 +52,7 @@ namespace Batcaverna
                                  Console.WriteLine("BatTraje não encontrado :/ \n");
                         }
 
-                        if (opcaoSelecionadaBatTraje == "4") 
+                        if(opcaoSelecionadaBatTraje == "4") 
                         {
                             Console.WriteLine("Favor, informar o Id: ");
                             idInformado = Console.ReadLine();
@@ -70,20 +69,14 @@ namespace Batcaverna
                                 Console.WriteLine("BatTraje não encontrado :/ \n");
 
                         }
-
-                        if (opcaoSelecionadaBatTraje == "0")
-                            ObterOpçãoDoMenuComUsuário();
                     }
                 }
 
                 if ( opcaoSelecionada == "2")
                 {
-
-                    var opcaoSelecionadaBatCarro = "";
-                    opcaoSelecionadaBatCarro = ObterOpçãoDoMenuBatCarroComUsuário();
-
-                    while(opcaoSelecionadaBatCarro != "x")
+                    while(opcaoSelecionadaBatCarro != "")
                     {
+                        opcaoSelecionadaBatCarro = ObterOpçãoDoMenuBatCarroComUsuário();
 
                         if (opcaoSelecionadaBatCarro == "1") 
                         {
@@ -126,9 +119,6 @@ namespace Batcaverna
                                 Console.WriteLine("BatCarro não encontrado :/ \n");
                     
                         }
-
-                        if (opcaoSelecionadaBatCarro == "0")
-                        ObterOpçãoDoMenuComUsuário();
                     }
                 }
             }
@@ -136,15 +126,14 @@ namespace Batcaverna
 
         static string ObterOpçãoDoMenuComUsuário() 
         {
-            
-                Console.WriteLine("O que deseja acessar?");
-                Console.WriteLine("1. BatTraje");
-                Console.WriteLine("2. BatCarro");
-                Console.WriteLine("X. Sair");
-            
+            Console.WriteLine("O que deseja acessar?");
+            Console.WriteLine("1. BatTraje");
+            Console.WriteLine("2. BatCarro");
+            Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
         }
+
         static string ObterOpçãoDoMenuBatTrajeComUsuário()
         {
             Console.WriteLine("O que deseja fazer?");
@@ -152,7 +141,6 @@ namespace Batcaverna
             Console.WriteLine("2. Quantidade de BatTrajes");
             Console.WriteLine("3. Verificar se BatTraje existe");
             Console.WriteLine("4. Excluir BatTraje");
-            Console.WriteLine("0. Voltar ao menu inicial");
             Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
@@ -164,7 +152,6 @@ namespace Batcaverna
             Console.WriteLine("2. Quantidade de BatCarros");
             Console.WriteLine("3. Verificar se BatCarro existe");
             Console.WriteLine("4. Excluir Batcarro");
-            Console.WriteLine("0. Voltar ao menu inicial");
             Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
