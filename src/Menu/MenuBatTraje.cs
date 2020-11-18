@@ -2,7 +2,6 @@ using Batcaverna.Menu;
 using Batcaverna.Modelos;
 using Batcaverna.Repositorios;
 using System;
-
 namespace src.MenuBatTraje
 {
     public class MenuBatTraje : Menu
