@@ -1,14 +1,12 @@
-
 using Batcaverna.Menu;
 using Batcaverna.Modelos;
 using Batcaverna.Repositorios;
 using System;
-
 namespace src.MenuBatTraje
 {
     public class MenuBatTraje : Menu
     {
-        protected var batTrajes = new BatTrajeRepositorio();
+        public var batTrajes = new BatTrajeRepositorio();
         public override void Cadastrar()
         {
             batTrajes.AdicionarTraje(new BatTraje());
