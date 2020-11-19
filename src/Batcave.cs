@@ -1,5 +1,7 @@
 ﻿using Batcaverna.Modelos;
 using Batcaverna.Repositorios;
+using src.MenuBatCarro;
+using src.MenuBatTraje;
 using System;
 
 namespace Batcaverna
@@ -9,17 +11,17 @@ namespace Batcaverna
         static void Main(string[] args)
         {
             var opcaoSelecionada = "";
-            var opcaoSelecionadaBatTraje = "";
-            var opcaoSelecionadaBatCarro = "";
-            var batTrajes = new BatTrajeRepositorio();
-            var batCarros = new BatCarroRepositorio();
-            var idInformado = "";
+            var menuBatTraje = new MenuBatTraje();
+            var menuBatCarro = new MenuBatCarro();
 
             Console.WriteLine("Bem-vindo à Batcaverna!");
 
             while (opcaoSelecionada != "x") 
             {
                 opcaoSelecionada = ObterOpçãoDoMenuComUsuário();
+
+                var opcaoSelecionadaBatTraje = "";
+                var opcaoSelecionadaBatCarro = "";
 
                 if (opcaoSelecionada == "1")
                 {
@@ -28,47 +30,20 @@ namespace Batcaverna
                         opcaoSelecionadaBatTraje = ObterOpçãoDoMenuBatTrajeComUsuário();
 
                         if (opcaoSelecionadaBatTraje == "1") 
-                        {
-                            batTrajes.AdicionarTraje(new BatTraje());
-                            Console.WriteLine($"BatTraje adicionado com sucesso :) \n");
-                        }
+                            menuBatTraje.Cadastrar();
+                        
 
                         if(opcaoSelecionadaBatTraje == "2") 
-                        {
-                            var quantidadeDeTrajes = batTrajes.ListarTrajes().Count;
-                            Console.WriteLine($"Quantidade de BatTrajes: {quantidadeDeTrajes}\n");
-                        }
+                            menuBatTraje.Quantidade();
+                        
 
                         if(opcaoSelecionadaBatTraje == "3")
-                        {
-                            Console.WriteLine("Favor, informar o Id: ");
-                            idInformado = Console.ReadLine();
+                            menuBatTraje.Verificar();
 
-                            var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
-
-                            if (traje != null)
-                                Console.WriteLine($"O BatTraje existe! \n");
-                            else
-                                 Console.WriteLine("BatTraje não encontrado :/ \n");
-                        }
 
                         if(opcaoSelecionadaBatTraje == "4") 
-                        {
-                            Console.WriteLine("Favor, informar o Id: ");
-                            idInformado = Console.ReadLine();
-
-                            var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
-
-                            if (traje != null)
-                            {
-                                batTrajes.ExcluirTraje(batTrajes.ObterPorId(Int64.Parse(idInformado)));
-                                Console.WriteLine($"BatTraje excluido com sucesso :) \n");
-                            }
-                       
-                            else
-                                Console.WriteLine("BatTraje não encontrado :/ \n");
-
-                        }
+                            menuBatTraje.Excluir();
+                        
                     }
                 }
 
@@ -79,46 +54,16 @@ namespace Batcaverna
                         opcaoSelecionadaBatCarro = ObterOpçãoDoMenuBatCarroComUsuário();
 
                         if (opcaoSelecionadaBatCarro == "1") 
-                        {
-                            batCarros.AdicionarCarro(new BatCarro());
-                            Console.WriteLine($"BatCarro adicionado com sucesso :) \n");
-                        }
+                            menuBatCarro.Cadastrar();
 
                         if(opcaoSelecionadaBatCarro == "2") 
-                        {
-                            var quantidadeDeCarros = batCarros.ListarCarros().Count;
-                            Console.WriteLine($"Quantidade de BatCarros: {quantidadeDeCarros}\n");
-                        }
+                            menuBatCarro.Quantidade();
 
                         if (opcaoSelecionadaBatCarro == "3")
-                        {
-                            Console.WriteLine("Favor, informar o Id: ");
-                            idInformado = Console.ReadLine();
-
-                            var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
-
-                            if (carro != null)
-                                Console.WriteLine($"O BatCarro existe! \n");
-                            else
-                                Console.WriteLine("BatCarro não encontrado :/ \n");
-                        }
+                            menuBatCarro.Verificar();
 
                         if (opcaoSelecionadaBatCarro == "4") 
-                        {
-                            Console.WriteLine("Favor, informar o Id: ");
-                            idInformado = Console.ReadLine();
-
-                            var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
-
-                            if (carro != null)
-                            {
-                                batCarros.ExcluirCarro(batCarros.ObterPorId(Int64.Parse(idInformado)));
-                                Console.WriteLine($"BatCarro excluido com sucesso :) \n");
-                            }
-                            else
-                                Console.WriteLine("BatCarro não encontrado :/ \n");
-                    
-                        }
+                            menuBatCarro.Excluir();
                     }
                 }
             }
