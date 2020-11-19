@@ -6,7 +6,7 @@ namespace src.MenuBatTraje
 {
     public class MenuBatTraje : Menu
     {
-        public var batTrajes = new BatTrajeRepositorio();
+        public BatTrajeRepositorio batTrajes = new BatTrajeRepositorio();
         public override void Cadastrar()
         {
             batTrajes.AdicionarTraje(new BatTraje());

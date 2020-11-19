@@ -6,7 +6,7 @@ namespace src.MenuBatCarro
 {
     public class MenuBatCarro : Menu
     {
-        public var batCarros = new BatCarroRepositorio();
+        public BatCarroRepositorio batCarros = new BatCarroRepositorio();
         public override void Cadastrar()
         {
             batCarros.AdicionarCarro(new BatCarro());
