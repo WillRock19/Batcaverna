@@ -1,5 +1,6 @@
 using Batcaverna.Modelos;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Batcaverna.Repositorios
 {
@@ -30,13 +31,12 @@ namespace Batcaverna.Repositorios
 
         public BatCarro ObterPorId(long id) 
         {
-            foreach(var carro in _listaDeCarros) 
-            {
-                if (carro.Id == id)
-                    return carro;
-            }
-
-            return null;
+          var carro = _listaDeCarros.FirstOrDefault(batCarro => batCarro.Id == id);
+            return carro;
+        }
+        public void ExcluirCarro(BatCarro carro) 
+        {
+            _listaDeCarros.Remove(carro);
         }
     }
 }

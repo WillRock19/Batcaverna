@@ -11,6 +11,7 @@ namespace Batcaverna
             var opcaoSelecionada = "";
             var batTrajes = new BatTrajeRepositorio();
             var batCarros = new BatCarroRepositorio();
+            var idInformado = "";
 
             Console.WriteLine("Bem-vindo à Batcaverna!");
 
@@ -21,53 +22,87 @@ namespace Batcaverna
                 if (opcaoSelecionada == "1") 
                 {
                     batTrajes.AdicionarTraje(new BatTraje());
-                    Console.WriteLine($"Traje adicionado com sucesso :) \n");
+                    Console.WriteLine($"BatTraje adicionado com sucesso :) \n");
                 }
 
                 if(opcaoSelecionada == "2") 
                 {
                     var quantidadeDeTrajes = batTrajes.ListarTrajes().Count;
-                    Console.WriteLine($"Quantidade de trajes: {quantidadeDeTrajes}\n");
+                    Console.WriteLine($"Quantidade de BatTrajes: {quantidadeDeTrajes}\n");
                 }
 
 
                 if (opcaoSelecionada == "3")
                 {
                     Console.WriteLine("Favor, informar o Id: ");
-                    var idInformado = Console.ReadLine();
+                    idInformado = Console.ReadLine();
 
                     var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
 
                     if (traje != null)
-                        Console.WriteLine($"O traje existe! \n");
+                        Console.WriteLine($"O BatTraje existe! \n");
                     else
-                        Console.WriteLine("Traje não encontrado :/ \n");
+                        Console.WriteLine("BatTraje não encontrado :/ \n");
                 }
 
                 if (opcaoSelecionada == "4") 
                 {
-                    batCarros.AdicionarCarro(new BatCarro());
-                    Console.WriteLine($"Carro adicionado com sucesso :) \n");
+                    Console.WriteLine("Favor, informar o Id: ");
+                    idInformado = Console.ReadLine();
+
+                    var traje = batTrajes.ObterPorId(Int64.Parse(idInformado));
+
+                    if (traje != null)
+                    {
+                        batTrajes.ExcluirTraje(batTrajes.ObterPorId(Int64.Parse(idInformado)));
+                        Console.WriteLine($"BatTraje excluido com sucesso :) \n");
+                    }
+                       
+                    else
+                        Console.WriteLine("BatTraje não encontrado :/ \n");
+
                 }
 
-                if(opcaoSelecionada == "5") 
+                if (opcaoSelecionada == "5") 
+                {
+                    batCarros.AdicionarCarro(new BatCarro());
+                    Console.WriteLine($"BatCarro adicionado com sucesso :) \n");
+                }
+
+                if(opcaoSelecionada == "6") 
                 {
                     var quantidadeDeCarros = batCarros.ListarCarros().Count;
-                    Console.WriteLine($"Quantidade de carros: {quantidadeDeCarros}\n");
+                    Console.WriteLine($"Quantidade de BatCarros: {quantidadeDeCarros}\n");
                 }
 
 
-                if (opcaoSelecionada == "6")
+                if (opcaoSelecionada == "7")
                 {
                     Console.WriteLine("Favor, informar o Id: ");
-                    var idInformado = Console.ReadLine();
+                    idInformado = Console.ReadLine();
 
                     var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
 
                     if (carro != null)
-                        Console.WriteLine($"O carro existe! \n");
+                        Console.WriteLine($"O BatCarro existe! \n");
                     else
-                        Console.WriteLine("Carro não encontrado :/ \n");
+                        Console.WriteLine("BatCarro não encontrado :/ \n");
+                }
+                if (opcaoSelecionada == "8") 
+                {
+                    Console.WriteLine("Favor, informar o Id: ");
+                    idInformado = Console.ReadLine();
+
+                    var carro = batCarros.ObterPorId(Int64.Parse(idInformado));
+
+                    if (carro != null)
+                    {
+                        batCarros.ExcluirCarro(batCarros.ObterPorId(Int64.Parse(idInformado)));
+                        Console.WriteLine($"BatCarro excluido com sucesso :) \n");
+                    }
+                    else
+                        Console.WriteLine("BatCarro não encontrado :/ \n");
+                    
                 }
             }
         }
@@ -77,10 +112,12 @@ namespace Batcaverna
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine("1. Cadastrar BatTraje");
             Console.WriteLine("2. Quantidade de BatTrajes");
-            Console.WriteLine("3. Verificar se traje existe");
-            Console.WriteLine("4. Cadastrar BatCarro");
-            Console.WriteLine("5. Quantidade de BatCarros");
-            Console.WriteLine("6. Verificar se carro existe");
+            Console.WriteLine("3. Verificar se BatTraje existe");
+            Console.WriteLine("4. Excluir BatTraje");
+            Console.WriteLine("5. Cadastrar BatCarro");
+            Console.WriteLine("6. Quantidade de BatCarros");
+            Console.WriteLine("7. Verificar se BatCarro existe");
+            Console.WriteLine("8. Excluir Batcarro");
             Console.WriteLine("X. Sair");
 
             return Console.ReadLine();
