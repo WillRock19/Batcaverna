@@ -31,15 +31,12 @@ namespace Batcaverna
 
                         if (opcaoSelecionadaBatTraje == "1") 
                             menuBatTraje.Cadastrar();
-                        
 
                         if(opcaoSelecionadaBatTraje == "2") 
                             menuBatTraje.Quantidade();
-                        
 
                         if(opcaoSelecionadaBatTraje == "3")
                             menuBatTraje.Verificar();
-
 
                         if(opcaoSelecionadaBatTraje == "4") 
                             menuBatTraje.Excluir();

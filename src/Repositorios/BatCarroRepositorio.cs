@@ -30,8 +30,7 @@ namespace Batcaverna.Repositorios
 
         public BatCarro ObterPorId(long id) 
         {
-
-          var carro = _listaDeCarros.FirstOrDefault(batCarro => batCarro.Id == id);
+            var carro = _listaDeCarros.FirstOrDefault(batCarro => batCarro.Id == id);
             return carro;
         }
         public void ExcluirCarro(BatCarro carro) 
