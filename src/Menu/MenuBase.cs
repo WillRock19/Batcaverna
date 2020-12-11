@@ -16,6 +16,7 @@ namespace Batcaverna.Menu
         }
 
         public abstract void Cadastrar();
+
         public void Excluir()
         {
             var idInformado = "";
@@ -54,5 +55,4 @@ namespace Batcaverna.Menu
         }
  
     }
-
 }
