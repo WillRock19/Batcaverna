@@ -1,8 +1,8 @@
-using Batcaverna.Modelos.Acessorios;
+using src.Interface;
 
 namespace Batcaverna.Modelos
 {
-    public class BatCarro
+    public class BatCarro : IEntidadeCadastral
     {
         public long Id { get; set; }
         public bool ResistenteÀCorte { get; set; }

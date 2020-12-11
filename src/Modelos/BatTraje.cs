@@ -1,8 +1,9 @@
 ﻿using Batcaverna.Modelos.Acessorios;
+using src.Interface;
 
 namespace Batcaverna.Modelos
 {
-    public class BatTraje
+    public class BatTraje : IEntidadeCadastral
     {
         public long Id { get; set; }
         public bool ResistenteÀCorte { get; set; }
