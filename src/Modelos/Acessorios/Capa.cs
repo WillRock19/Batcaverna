@@ -1,20 +1,21 @@
-﻿using src.Interface;
+using src.Interface;
 
 namespace Batcaverna.Modelos.Acessorios
 {
-    public class Capuz : IEntidadeCadastral
+    public class Capa : IEntidadeCadastral
     {
         public long Id { get; set; }
-        public bool PossuiVisãoNoturna { get; set; }
+        public bool PodeEnrijecer { get; set; }
         public bool ResistenteÀCorte { get; set; }
         public bool ResistenteÀBalas { get; set; }
         public string CorPrincipal { get; set; }
         public bool BocaÀMostra { get; set; }
 
-        public Capuz()
+        public Capa()
         {
             CorPrincipal = "Preto";
-            BocaÀMostra = true;
+            PodeEnrijecer = true;
+            ResistenteÀBalas = true;
         }
     }
 }
