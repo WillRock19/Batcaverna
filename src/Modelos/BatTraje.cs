@@ -10,5 +10,8 @@ namespace Batcaverna.Modelos
         public bool ResistenteÀBalas { get; set; }
         public string CorPrincipal { get; set; }
         public Capuz Capuz { get; set; }
+        public Capa Capa { get; set; }
+        public Cinto Cinto { get; set; }
+        public Luvas Luvas { get; set; }
     }
 }
